@@ -1,0 +1,10 @@
+LoadPlugin python
+<Plugin "python">
+  ModulePath "<%= @MONGO_MODULE_PATH %>"
+  Import "mongodb"
+  <Module mongodb> 
+    Host "<%= @MONGO_HOST %>"
+    Password "<%= @MONGO_PASSWORD %>"
+    Database <%= @MONGO_DATABASES %>
+  </Module>
+</Plugin>
