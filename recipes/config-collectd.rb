@@ -9,7 +9,7 @@ template = "collectd.conf.erb"
 if node[:platform] == "centos" && node["platform_version"].to_i >= 7
   template = "collectd-centos7.conf.erb"
 end
-
+  
 template conf_path do
   source template
 end
