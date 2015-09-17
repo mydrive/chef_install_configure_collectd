@@ -10,7 +10,7 @@ uri_items = Hash.new()
 if node["write_http"]["AWS_integration"] == true 
   begin
     Timeout::timeout(10) do
-      AWS_metadata = open('http://169.254.169.254/latest/dynamic/instance-identity/document'){ |io| data = io.read }
+      AWS_metadata = open('http://169.254.169.254/2014-11-05/dynamic/instance-identity/document'){ |io| data = io.read }
       AWS_JSON_Information = JSON.parse(AWS_metadata)
       puts uri_items["sfxdim_AWSUniqueId"] = "#{AWS_JSON_Information["instanceId"]}_#{AWS_JSON_Information["region"]}_#{AWS_JSON_Information["accountId"]}"
   end
