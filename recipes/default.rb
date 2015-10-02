@@ -4,6 +4,14 @@
 #
 # Copyright (c) 2015 The Authors, All Rights Reserved.
 
+# 
+# This function is to install collectd for centos and amazon OS.
+# All of the os names and version numbers are writen in the chef_install_configure_collectd/attributes/SignalFx_rpm_repo.rb
+# 
+# os: Operation System name. At here we only support the centos and amazon
+# version: Version Number of operation system
+# 
+# 
 def install_in_redhat( os, version )
 
   if node["SignalFx_rpm_repo"][os].include? version
@@ -22,12 +30,15 @@ def install_in_redhat( os, version )
     package [ 
               "collectd",
               "collectd-disk",
-              "collectd-write_http"
             ]
 
   end
 
 end
+
+#
+#
+#
 
 def ubuntu_update()
   execute "apt_update" do
