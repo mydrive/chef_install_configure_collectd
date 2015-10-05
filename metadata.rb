@@ -4,11 +4,13 @@ maintainer_email 'support+chef@signalfx.com'
 license 'Copyright SignalFx, Inc. All rights reserved'
 description 'This cookbook provides a set of recipes to install and cofigure the collectd'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
-version '0.1.1'
+version '0.1.2'
 
 supports "centos"
 supports "amazon"
 supports "ubuntu"
+
+depends "apt"
 
 recipe "chef_install_configure_collectd::default",
   "Install the lastest version collectd of SignalFx, Inc"

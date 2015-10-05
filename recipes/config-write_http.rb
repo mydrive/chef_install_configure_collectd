@@ -28,6 +28,7 @@ end
 
 template "/etc/collectd.d/managed_config/10-aggregation-cpu.conf" do
   source "10-aggregation-cpu.conf.erb"
+  notifies :restart, "service[collectd]"
 end
 
 ingesturl = node["write_http"]["Ingest_host"]
@@ -42,8 +43,10 @@ template "/etc/collectd.d/managed_config/10-write_http-plugin.conf" do
     :INGEST_HOST => ingesturl, 
     :API_TOKEN => node["write_http"]["API_TOKEN"]
   })
+  notifies :restart, "service[collectd]"
 end
 
 service 'collectd' do
-  action [:enable, :stop, :start]
+  supports enable: true, start: true, stop: true
+  action [ :enable, :start ]
 end
