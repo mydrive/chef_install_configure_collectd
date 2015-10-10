@@ -13,7 +13,7 @@ require_relative './helper.rb'
 # the path is on /etc/collectd.conf. For ubuntu, the path is on /etc/collectd/collectd.conf.
 #
 def get_collectd_path()
-  case node[:platform]
+  case node['platform']
     when 'centos', 'amazon'
       return '/etc/collectd.conf'
     when 'ubuntu'
@@ -26,7 +26,7 @@ end
 # The other os, we need collectd.conf.erb
 #
 def get_collectd_conf_template()
-  if node[:platform] == 'centos' && node[:platform_version].to_i >= 7
+  if node['platform'] == 'centos' && node['platform_version'].to_i >= 7
     return 'collectd-centos7.conf.erb'
   end
   return 'collectd.conf.erb'

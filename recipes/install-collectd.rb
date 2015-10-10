@@ -17,7 +17,7 @@ require_relative './helper.rb'
 def install_single_rpm_repo(rpm_package)
   download_file("#{SignalFx_Repo_Link}/#{rpm_package}",
                 "/tmp/#{rpm_package}")
-  install_rpm_package("#{rpm_package}", "/tmp/#{rpm_package}")
+  install_rpm_package(rpm_package, "/tmp/#{rpm_package}")
 end
 
 #
@@ -29,7 +29,7 @@ end
 #
 def install_repo_rpms(os, version)
   unless node['SignalFx_rpm_repo'][os].include? version
-    raise ("Do not support your system #{node[:platform]}_#{node[:platform_version]}") 
+    raise ("Do not support your system #{node['platform']}_#{node['platform_version']}") 
   end
   
   install_single_rpm_repo(node['SignalFx_rpm_repo'][os][version]['SignalFx-repo'])
@@ -82,7 +82,7 @@ end
 #
 
 SignalFx_Repo_Link = node['SignalFx_rpm_repo']['uri']
-case node[:platform]
+case node['platform']
 when 'centos'
   # Get the centos integer version
   install_in_redhat('centos', node['platform_version'].to_i.to_s)
@@ -91,5 +91,5 @@ when 'amazon'
 when 'ubuntu'
   install_in_ubuntu
 else
-  raise ("Do not support your system #{node[:platform]}_#{node[:platform_version]}")
+  raise ("Do not support your system #{node['platform']}_#{node['platform_version']}")
 end

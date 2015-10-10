@@ -11,7 +11,7 @@
 #
 require_relative './helper.rb'
 
-if node[:platform] == 'centos' or node[:platform] == 'amazon'
+if node['platform'] == 'centos' or node['platform'] == 'amazon'
   package 'collect-write_http'
 end
 
