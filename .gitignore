@@ -1,0 +1,7 @@
+.kitchen/
+.kitchen.local.yml
+.kitchen.aws.yml
+.kitchen.vagrant.yml
+Gemfile
+Gemfile.lock
+Berksfile.lock
