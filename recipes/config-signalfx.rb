@@ -10,7 +10,8 @@
 #
 # This recipe is to install and config signalfx_plugin 
 #
-require_relative './helper.rb'
+#require_relative './helper.rb'
+require File.expand_path("../helper.rb", __FILE__)
 
 package 'signalfx-collectd-plugin'
 

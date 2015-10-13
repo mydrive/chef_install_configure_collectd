@@ -16,4 +16,7 @@ branches:
   only:
     - master
 
-script: bundle exec rake foodcritic 
+before_script:
+  - bundle exec berks
+
+script: bundle exec rspec 

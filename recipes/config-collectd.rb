@@ -7,7 +7,7 @@
 #
 # Copyright (c) 2015 SignalFx, Inc, All Rights Reserved.
 
-require_relative './helper.rb'
+require File.expand_path("../helper.rb", __FILE__)
 #
 # This fucntion is to get collectd configure file path. For centos and amazon,
 # the path is on /etc/collectd.conf. For ubuntu, the path is on /etc/collectd/collectd.conf.
