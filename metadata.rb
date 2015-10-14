@@ -10,11 +10,4 @@ supports "centos"
 supports "amazon"
 supports "ubuntu"
 
-recipe "chef_install_configure_collectd::default",
-  "Install the lastest version collectd of SignalFx, Inc"
-
-recipe "chef_install_configure_collectd::config-collectd",
-  "Configure the collectd write the collectd.conf file"
-
-recipe "chef_install_configure_collectd::config-write_http",
-  "Configure the write_http plugin of collectd"
+depends 'apt'
