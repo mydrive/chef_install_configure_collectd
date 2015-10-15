@@ -71,3 +71,19 @@ def getHttpUri
   end
   return ingesturl
 end
+
+# ensure collectd start 
+
+def start_collectd
+  service 'collectd' do
+    action [:enable, :start]
+  end
+end
+
+#install on centos
+
+def install_package_on_redhat( package_name )
+  if node['platform'] == 'cnetos' or node['platform'] == 'amazon'
+    package package_name
+  end
+end

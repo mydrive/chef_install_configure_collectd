@@ -6,3 +6,4 @@ Berksfile.lock
 bin/
 rakefile.rb
 vendor/
+berks-cookbooks/
