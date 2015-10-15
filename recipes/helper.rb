@@ -71,3 +71,11 @@ def getHttpUri
   end
   return ingesturl
 end
+
+# ensure collectd start 
+
+def start_collectd
+  service 'collectd' do
+    action [:enable, :start]
+  end
+end

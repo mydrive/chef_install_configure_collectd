@@ -23,8 +23,7 @@ template "#{node['collectd_conf_folder']}/10-signalfx.conf" do
     :INGEST_HOST => ingesturl,
     :API_TOKEN => node['write_http']['API_TOKEN']
   })
+  notifies :restart, 'service[collectd]'
 end
 
-service 'collectd' do
-  action [:enable, :stop, :start]
-end
+start_collectd

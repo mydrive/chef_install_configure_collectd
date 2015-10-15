@@ -37,10 +37,12 @@ path = get_collectd_path()
 
 template path do
   source template
+  notifies :restart, "service[collectd]"
 end
 
 createDirectory(node['collectd_conf_folder'], '0700')
 
 template "#{node['collectd_conf_folder']}/10-aggregation-cpu.conf" do
   source '10-aggregation-cpu.conf.erb'
+  notifies :restart, 'service[collectd]'
 end
