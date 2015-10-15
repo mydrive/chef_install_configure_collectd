@@ -36,3 +36,5 @@ group :development do
     gem 'win32console'
   end
 end
+
+gem "kitchen-docker", '2.3.0'
