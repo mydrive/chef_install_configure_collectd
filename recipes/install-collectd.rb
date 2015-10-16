@@ -54,10 +54,8 @@ end
 
 def install_in_redhat(os, version)
   install_repo_rpms(os, version)
-  package [
-    'collectd',
-    'collectd-disk'
-  ]
+  install_package 'collectd'
+  install_package 'collectd-disk'
 end
 
 #
@@ -75,7 +73,7 @@ def install_in_ubuntu
   install_ppa(node['SignalFx_ppa']['collectd_plugin']['name'],
               node['SignalFx_ppa']['collectd_plugin']['uri'])
 
-  package 'collectd'
+  install_package 'collectd'
 end
 
 #

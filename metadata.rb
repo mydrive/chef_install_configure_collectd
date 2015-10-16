@@ -10,4 +10,5 @@ supports "centos"
 supports "amazon"
 supports "ubuntu"
 
-depends 'apt'
+depends 'apt', '> 2.8'
+depends 'python', '> 1.4'

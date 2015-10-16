@@ -13,7 +13,7 @@ require File.expand_path("../helper.rb", __FILE__)
 #require_relative './helper.rb'
 
 if node['platform'] == 'centos' or node['platform'] == 'amazon'
-  package 'collect-write_http'
+  package 'collectd-write_http'
 end
 
 ingesturl = getHttpUri
