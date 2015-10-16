@@ -1,4 +1,5 @@
 # chef_install_configure_collectd #
+[![Build Status](https://api.travis-ci.org/VictorDu/chef_install_configure_collectd.svg?branch=master)](https://travis-ci.org/VictorDu/chef_install_configure_collectd)
 
 # DESCRIPTION #
 
