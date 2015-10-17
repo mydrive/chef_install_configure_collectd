@@ -83,7 +83,18 @@ end
 #install on centos
 
 def install_package_on_redhat( package_name )
-  if node['platform'] == 'cnetos' or node['platform'] == 'amazon'
-    package package_name
+  if node['platform'] == 'centos' or node['platform'] == 'amazon'
+    install_package package_name
   end
+end
+
+def install_package(package_name)
+  if node.include? 'collectd_version' and node['collectd_version'] != 'lastest'
+    package package_name do
+      version node['collectd_version']
+      action :install
+    end
+  else
+    package package_name
+  end  
 end
